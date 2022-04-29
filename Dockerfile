@@ -12,23 +12,7 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
-
-# Use the Google Cloud SDK image.
-FROM google/cloud-sdk
-RUN apt-get install google-cloud-sdk
-
-RUN apt-get update && apt-get install -y python3-pip python3
-
-# Copy local code to the container image.
-ENV APP_HOME /app
-WORKDIR $APP_HOME
-COPY . ./
-
-# Install production dependencies.
-RUN pip3 install Flask gunicorn
-
-# Run the web service on container startup
-CMD exec gunicorn --bind :$PORT --workers 1 --threads 8 app:app
+RUN echo "deb [signed-by=/usr/share/keyrings/cloud.google.gpg] http://packages.cloud.google.com/apt cloud-cli main" | tee -a /etc/apt/sources.list.d/google-cloud-sdk.list && curl https://packages.cloud.google.com/apt/doc/apt-key.gpg | apt-key --keyring /usr/share/keyrings/cloud.google.gpg  add - && apt-get update -y && apt-get install google-cloud-cli -y
 
 FROM bash
 COPY main.sh .

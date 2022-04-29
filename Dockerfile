@@ -15,6 +15,7 @@
 
 # Use the Google Cloud SDK image.
 FROM google/cloud-sdk
+RUN apt-get install google-cloud-sdk
 
 RUN apt-get update && apt-get install -y python3-pip python3
 

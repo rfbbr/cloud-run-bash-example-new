@@ -9,5 +9,8 @@ EOF
 )"
 
 echo -en "$HEAD"
-date
-gcloud alpha storage ls
+#date
+echo "bucket"
+gcloud alpha storage ls --project=sem-servidor-348402 >> bucket
+echo "bucket"
+echo $bucket

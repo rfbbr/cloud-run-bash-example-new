@@ -10,3 +10,4 @@ EOF
 
 echo -en "$HEAD"
 date
+gcloud alpha storage ls

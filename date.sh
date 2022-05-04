@@ -9,4 +9,4 @@ EOF
 )"
 
 echo -en "$HEAD"
-date
+gsutil ls gs://deploy-teste-dev

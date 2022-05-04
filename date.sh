@@ -9,5 +9,4 @@ EOF
 )"
 
 echo -en "$HEAD"
-gcloud alpha storage ls --project=business-analytics-hml
 date
